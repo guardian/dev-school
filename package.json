@@ -1,6 +1,6 @@
 {
-	"name": "typescript-school",
-	"description": "🧑‍🎓🧑‍🏫🧑‍🎓 Resources for learning more about a common language at the Guardian: TypeScript ",
+	"name": "dev-school",
+	"description": "🧑‍🎓🧑‍🏫🧑‍🎓 Resources for learning more about common languages at the Guardian: TypeScript and Scala",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -12,17 +12,18 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/guardian/typescript-school.git"
+		"url": "git+https://github.com/guardian/dev-school.git"
 	},
 	"keywords": [
-		"typescript"
+		"typescript",
+		"scala"
 	],
 	"author": "@guardian/typescript",
 	"license": "Apache-2.0",
 	"bugs": {
-		"url": "https://github.com/guardian/typescript-school/issues"
+		"url": "https://github.com/guardian/dev-school/issues"
 	},
-	"homepage": "https://github.com/guardian/typescript-school#readme",
+	"homepage": "https://github.com/guardian/dev-school#readme",
 	"devDependencies": {
 		"@guardian/package-linter": "0.5.3",
 		"@guardian/prettier": "5.0.0",
