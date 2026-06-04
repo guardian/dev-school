@@ -304,7 +304,7 @@ myList :+ anotherList // List(1, 2, 3, List(9, 8, 7))
 
 Other types of collections available include [`Set`](https://docs.scala-lang.org/overviews/collections-2.13/sets.html) (a collection with no duplicates), [`Seq`](https://docs.scala-lang.org/overviews/collections-2.13/seqs.html) (sequences), [`Map`](https://docs.scala-lang.org/overviews/collections-2.13/maps.html) (a collection of key value pairs).
 
-You can see more types of collections in [the Scala documentation](https://docs.scala-lang.org/overviews/collections-2.13/introduction.html).
+You can see more types of collections in [the Scala documentation](https://docs.scala-lang.org/overviews/collections-2.13/introduction.html) and we'll cover these in more detail in lesson 2!
 
 ---
 
@@ -327,11 +327,9 @@ e.g.
 def label(n: Int) = {
   if (n % 2 == 0) {
     "neutral"
-  }
-  else if (n < 0) {
+  } else if (n < 0) {
     "negative"
-  }
-  else {
+  } else {
     "positive"
   }  
 }
@@ -445,7 +443,7 @@ val greet(name: String): Unit = println(s"Hello, $name!")
 ```
 
 Evaluation order:
-- `def` evaluates when it is called (and each time it is called it will re-evaluate)
+- `def` evaluates when it is called (and each time it is called)
 - `val` evaluates once, when defined
 - `lazy val` will evaluated lazily, when it is called.
 
