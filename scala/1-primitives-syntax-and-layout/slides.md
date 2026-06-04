@@ -445,7 +445,7 @@ val greet(name: String): Unit = println(s"Hello, $name!")
 Evaluation order:
 - `def` evaluates when it is called (and each time it is called)
 - `val` evaluates once, when defined
-- `lazy val` will evaluated lazily, when it is called.
+- `lazy val` will be evaluated lazily, when it is called.
 
 In general, you should use `def` for functions.
 
