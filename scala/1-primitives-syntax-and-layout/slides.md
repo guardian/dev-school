@@ -156,7 +156,7 @@ These are evaluated _eagerly_ at declaration time.
 If you don't need your value or variable until a certain point in the program, you might choose to make it `lazy` where it will only evaluate when it is being used.
 
 ```scala
-// will be evaluated lazily
+// Will be evaluated only when used
 lazy val hello: String = "hello!"
 ```
 
@@ -176,8 +176,8 @@ Examples of Scala types:
 - `Long`
 - `Boolean`
 - `List`
-- `Option`
-- `Either`
+- `Option` (`Some` or `None`)
+- `Either` (`Left` or `Right`)
 - `Future`
 - `Unit`
 
@@ -189,7 +189,7 @@ Here are a list of core types in Scala 2: https://www.scala-lang.org/api/2.13.5/
 
 ---
 
-#### Comments
+### Comments
 
 ```scala
 // I am a single line comment
@@ -204,7 +204,7 @@ def myFunction(): Unit => {}
 
 ---
 
-#### Print statements
+### Print statements
 
 `println` is a function that prints to the console. We call it with the argument we want to print:
 
@@ -213,9 +213,12 @@ def myFunction(): Unit => {}
 println("Hello world!")
 ```
 
-#### String interpolation
+### String interpolation
 
 _s_ interpolator
+
+Put the letter "s" before a string and use `$` to dynamically insert statements
+
 ```scala
 // "s" interpolator
 val colour = "blue"
@@ -227,7 +230,7 @@ println(s"My favourite colour is ${"dark " + colour}")
 
 ---
 
-#### Blocks
+### Blocks
 
 You can combine expressions by surrounding them with `{}` which is called a "block". This is a group of code which is evaluated together. 
 
@@ -243,9 +246,19 @@ println({
 
 In Scala, we very rarely explicitly `return` anything. The result of a block is the last line evaluated in that block.
 
+```scala
+// The following block of code calculates values for `two` and `three`
+// but returns Unit at the end because the `println` is the last statement evaluated
+val result = {
+  val two = 1 + 1
+  val three = two + 1
+  println("4") // last line is the result of the block
+}
+```
+
 ---
 
-#### Operations
+### Operations
 
 Mathematical operations work in a similar way to other programming languages.
 For example:
@@ -267,7 +280,7 @@ Note `==` double equals means "is equal to", `=` single equals is for _assignmen
 
 ---
 
-#### Collections
+### Collections
 
 **Lists**
 
@@ -295,11 +308,6 @@ val anotherList = List(9, 8, 7)
 
 // combine both lists into one
 myList ++ anotherList // List (1, 2, 3, 9, 8, 7)
-
-// prepends myList as the first element of anotherList
-myList +: anotherList // List(List(1, 2, 3), 9, 8, 7)
-// appends anotherList as the last element of myList
-myList :+ anotherList // List(1, 2, 3, List(9, 8, 7))
 ```
 
 Other types of collections available include [`Set`](https://docs.scala-lang.org/overviews/collections-2.13/sets.html) (a collection with no duplicates), [`Seq`](https://docs.scala-lang.org/overviews/collections-2.13/seqs.html) (sequences), [`Map`](https://docs.scala-lang.org/overviews/collections-2.13/maps.html) (a collection of key value pairs).
@@ -325,7 +333,7 @@ if (condition) {
 e.g. 
 ```scala
 def label(n: Int) = {
-  if (n % 2 == 0) {
+  if (n == 0) {
     "neutral"
   } else if (n < 0) {
     "negative"
@@ -436,18 +444,17 @@ Anonymous functions are functions without names. These are useful when providing
 { (x: Int, y: Int) => x + y }
 ```
 
-Functions can be assigned as _values_ in Scala. So the following is valid too:
+Functions can be assigned as _values_ in Scala. So the following is valid too, just as `const` can be used in Javascript:
 
 ```scala
-val greet(name: String): Unit = println(s"Hello, $name!")
+// String => Unit is the type of the greet function
+// It takes a String as an argument and returns a Unit type
+val greet: String => Unit = 
+  // The greet function implementation is below
+  (name: String) => println(s"Hello, $name!")
 ```
 
-Evaluation order:
-- `def` evaluates when it is called (and each time it is called)
-- `val` evaluates once, when defined
-- `lazy val` will be evaluated lazily, when it is called.
-
-In general, you should use `def` for functions.
+In general, you should think of `def` when implementing functions as you will usually want a _method_.
 
 <!--omit-from-slides start-->
 For more information on functions, read Lesson 6 of _Get Programming with Scala_ by Daniela Sfregola.
@@ -484,7 +491,10 @@ We'll go into more detail about classes and objects in lesson 3!
 
 Set up your own Scala project by following the example in the SBT set up guide: https://www.scala-sbt.org/1.x/docs/sbt-by-example.html
 
-Try adding some logic into your `Hello.scala` program and running it.
+Focus on getting up to the [Scala REPL usage section](https://www.scala-sbt.org/1.x/docs/sbt-by-example.html#Use+Scala+REPL)
+
+Try adding some more logic into your `Hello.scala` program and running it.
+Try running the `console` command in `sbt` with some of the examples in this lesson.
 
 ## Additional Reading
 
