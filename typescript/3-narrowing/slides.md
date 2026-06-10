@@ -649,3 +649,20 @@ const logElement = (element: Element): string => {
 <!--omit-from-slides start-->
 When `kind` is `'Image'` TypeScript knows that it can narrow the type of `Element` to an `Image` and allow access to the `width` and `height` fields. When `kind` is `'Text'` TypeScript knows that it can narrow the type of `Element` to `Text` and allow access to the `copy` field.
 <!--omit-from-slides end-->
+
+---
+
+## `in` operator narrowing
+
+```ts
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+ 
+function move(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    return animal.swim();
+  }
+ 
+  return animal.fly();
+}
+```
