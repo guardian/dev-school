@@ -666,3 +666,28 @@ function move(animal: Fish | Bird) {
   return animal.fly();
 }
 ```
+
+---
+
+## Custom narrowing with the `is` keyword
+
+```ts
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Animal = Fish | Bird;
+
+const isFish = (maybeAnimal: Animal | null): maybeAnimal is Fish => {
+  return !!maybeAnimal && "swim" in maybeAnimal;
+}
+
+function isBird(maybeAnimal: Animal | null): maybeAnimal is Bird {
+  return !!maybeAnimal && "fly" in maybeAnimal;
+}
+ 
+function move(animal: Fish | Bird) {
+  if (isFish(animal)) {
+    return animal.swim();
+  }
+  return animal.fly();
+}
+```
