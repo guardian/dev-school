@@ -1,4 +1,4 @@
-# Narrowing
+# Narrowing (a.k.a. Type Guards)
 
 There's a chapter covering narrowing in the TypeScript handbook: https://www.typescriptlang.org/docs/handbook/2/narrowing.html
 
