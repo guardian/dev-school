@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: guardian/setup-scala@v1
+      - uses: guardian/setup-scala@v2
       - run: sbt mdoc
         working-directory: ./scala
